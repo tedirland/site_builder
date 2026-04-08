@@ -24,7 +24,7 @@ Handlebars.registerHelper("externalLink", (url: string, label: string) => {
   );
 });
 
-const TEMPLATES_DIR = join(__dirname, "templates");
+const TEMPLATES_DIR = join(process.cwd(), "src/lib/generation/templates");
 const VALID_TEMPLATES = ["modern-minimal", "bold-creative", "classic-professional"];
 const DEFAULT_TEMPLATE = "modern-minimal";
 
