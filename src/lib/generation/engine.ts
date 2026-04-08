@@ -25,17 +25,25 @@ Handlebars.registerHelper("externalLink", (url: string, label: string) => {
 });
 
 const TEMPLATES_DIR = join(__dirname, "templates");
+const VALID_TEMPLATES = ["modern-minimal", "bold-creative", "classic-professional"];
+const DEFAULT_TEMPLATE = "modern-minimal";
 
 const templateCache = new Map<string, HandlebarsTemplateDelegate>();
 
+function resolveTemplateId(templateId: string): string {
+  if (VALID_TEMPLATES.includes(templateId)) return templateId;
+  return DEFAULT_TEMPLATE;
+}
+
 function loadTemplate(templateId: string): HandlebarsTemplateDelegate {
-  const cached = templateCache.get(templateId);
+  const resolved = resolveTemplateId(templateId);
+  const cached = templateCache.get(resolved);
   if (cached) return cached;
 
-  const filePath = join(TEMPLATES_DIR, `${templateId}.hbs`);
+  const filePath = join(TEMPLATES_DIR, `${resolved}.hbs`);
   const source = readFileSync(filePath, "utf-8");
   const compiled = Handlebars.compile(source);
-  templateCache.set(templateId, compiled);
+  templateCache.set(resolved, compiled);
   return compiled;
 }
 

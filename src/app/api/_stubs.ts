@@ -68,7 +68,7 @@ const sampleThemeProposals: ThemeProposal[] = [
     id: "theme-minimal",
     name: "Clean Minimalist",
     description: "A clean, whitespace-focused design emphasizing readability.",
-    templateId: "minimal",
+    templateId: "modern-minimal",
     previewColors: {
       primary: "#1a1a2e",
       secondary: "#16213e",
@@ -81,7 +81,7 @@ const sampleThemeProposals: ThemeProposal[] = [
     id: "theme-bold",
     name: "Bold Creative",
     description: "A vibrant, attention-grabbing design with strong colors.",
-    templateId: "bold",
+    templateId: "bold-creative",
     previewColors: {
       primary: "#e94560",
       secondary: "#533483",
