@@ -58,7 +58,14 @@ export async function POST(
 
   const fileType = ext === ".pdf" ? "pdf" : "docx";
   const buffer = Buffer.from(await file.arrayBuffer());
-  const parsedData = await parseResume(buffer, fileType as "pdf" | "docx");
+
+  let parsedData;
+  try {
+    parsedData = await parseResume(buffer, fileType as "pdf" | "docx");
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to parse resume";
+    return NextResponse.json({ error: `Resume parsing failed: ${message}` }, { status: 422 });
+  }
 
   const resume = createResume(
     db,
