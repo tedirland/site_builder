@@ -92,8 +92,14 @@ export function createAIClient(): AIClient {
         throw new Error("Model did not call propose_themes tool");
       }
 
+      const VALID_TEMPLATES = ["modern-minimal", "bold-creative", "classic-professional"];
       const input = toolUse.input as { themes: ThemeProposal[] };
-      return input.themes;
+      return input.themes.map((theme) => ({
+        ...theme,
+        templateId: VALID_TEMPLATES.includes(theme.templateId)
+          ? theme.templateId
+          : VALID_TEMPLATES[Math.floor(Math.random() * VALID_TEMPLATES.length)],
+      }));
     },
 
     async extractProfileData(
