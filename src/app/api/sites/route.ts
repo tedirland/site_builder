@@ -32,31 +32,37 @@ export async function POST(
     );
   }
 
-  const history = getMessagesByConversation(db, body.conversationId);
-  const profileData = await aiClient.extractProfileData(history);
-  const { html, css } = await siteGenerator.generate(
-    profileData,
-    body.selectedThemeId,
-    profileData.personality,
-  );
+  try {
+    const history = getMessagesByConversation(db, body.conversationId);
+    const profileData = await aiClient.extractProfileData(history);
+    const { html, css } = await siteGenerator.generate(
+      profileData,
+      body.selectedThemeId,
+      profileData.personality,
+    );
 
-  const slug = `site-${body.conversationId.slice(0, 8)}`;
-  const site = createSite(
-    db,
-    body.conversationId,
-    slug,
-    profileData,
-    body.selectedThemeId,
-    html,
-    css,
-  );
+    const slug = `site-${body.conversationId.slice(0, 8)}`;
+    const site = createSite(
+      db,
+      body.conversationId,
+      slug,
+      profileData,
+      body.selectedThemeId,
+      html,
+      css,
+    );
 
-  return NextResponse.json(
-    {
-      siteId: site.id,
-      slug: site.slug,
-      previewUrl: `/${site.slug}`,
-    },
-    { status: 201 },
-  );
+    return NextResponse.json(
+      {
+        siteId: site.id,
+        slug: site.slug,
+        previewUrl: `/${site.slug}`,
+      },
+      { status: 201 },
+    );
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Site generation failed";
+    console.error("Site generation error:", err);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
