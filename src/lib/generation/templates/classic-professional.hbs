@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{name}} - Portfolio</title>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root {
+      --color-primary: #1b3a4b;
+      --color-secondary: #3d5a6e;
+      --color-accent: #8b6914;
+      --color-bg: #ffffff;
+      --color-surface: #f8f6f3;
+      --color-text: #333333;
+      --color-text-muted: #6b6b6b;
+      --color-border: #d4cfc7;
+      --font-serif: 'Georgia', 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max-width: 860px;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 72px 32px;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 2px solid var(--color-border);
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .hero .headline {
+      font-size: 1.15rem;
+      color: var(--color-secondary);
+      font-style: italic;
+    }
+    section {
+      margin-bottom: 52px;
+    }
+    section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .bio {
+      background: var(--color-surface);
+      padding: 32px;
+      border-radius: 4px;
+      border-left: 4px solid var(--color-accent);
+    }
+    .bio p {
+      font-size: 1.05rem;
+      color: var(--color-text);
+    }
+    .experience-item {
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #eee;
+    }
+    .experience-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .experience-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .experience-item .company {
+      font-weight: 600;
+      color: var(--color-secondary);
+    }
+    .experience-item .dates {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+    .experience-item p {
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .education-item:last-child {
+      border-bottom: none;
+    }
+    .education-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .education-item .details {
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+    .education-item .date {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+    .skill-badge {
+      display: inline-block;
+      padding: 5px 16px;
+      background: var(--color-surface);
+      color: var(--color-primary);
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .project-item {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+    .project-item:last-child {
+      border-bottom: none;
+    }
+    .project-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .project-item p {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .project-item .tech {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+    .project-item a {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .project-item a:hover {
+      text-decoration: underline;
+    }
+    .links-list {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    .links-list a {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .links-list a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 640px) {
+      .container { padding: 40px 20px; }
+      .hero h1 { font-size: 2rem; }
+      .education-item { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>{{name}}</h1>
+      <p class="headline">{{headline}}</p>
+    </header>
+
+    <section class="bio">
+      <h2>About</h2>
+      <p>{{bio}}</p>
+    </section>
+
+    {{#if experience.length}}
+    <section>
+      <h2>Professional Experience</h2>
+      {{#each experience}}
+      <div class="experience-item">
+        <h3>{{this.title}}</h3>
+        <div class="company">{{this.company}}</div>
+        <div class="dates">{{formatDate this.startDate}} &ndash; {{formatDate this.endDate}}</div>
+        <p>{{this.description}}</p>
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if education.length}}
+    <section>
+      <h2>Education</h2>
+      {{#each education}}
+      <div class="education-item">
+        <div>
+          <h3>{{this.institution}}</h3>
+          <div class="details">{{this.degree}} in {{this.field}}</div>
+        </div>
+        <div class="date">{{formatDate this.graduationDate}}</div>
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if skills.length}}
+    <section>
+      <h2>Skills &amp; Expertise</h2>
+      <div class="skills-list">
+        {{#each skills}}
+        {{{skillBadge this}}}
+        {{/each}}
+      </div>
+    </section>
+    {{/if}}
+
+    {{#if projects.length}}
+    <section>
+      <h2>Selected Projects</h2>
+      {{#each projects}}
+      <div class="project-item">
+        <h3>{{this.name}}</h3>
+        <p>{{this.description}}</p>
+        <div class="tech">{{#each this.technologies}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
+        {{#if this.url}}
+        <a href="{{this.url}}" target="_blank" rel="noopener noreferrer">View project</a>
+        {{/if}}
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if links.length}}
+    <section>
+      <h2>Connect</h2>
+      <ul class="links-list">
+        {{#each links}}
+        <li>{{{externalLink this.url this.label}}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    {{/if}}
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+Jane Doe
+jane.doe@example.com | (555) 123-4567
+linkedin.com/in/janedoe | github.com/janedoe
+
+SUMMARY
+Full-stack software engineer with 6 years of experience building web applications.
+Passionate about clean architecture, developer experience, and user-centered design.
+
+EXPERIENCE
+Senior Software Engineer | Acme Corp | Jan 2022 - Present
+- Led migration of monolithic Rails app to Next.js microservices, reducing page load by 40%
+- Designed and implemented real-time collaboration features using WebSockets
+- Mentored 3 junior engineers through code reviews and pair programming
+
+Software Engineer | StartupXYZ | Mar 2019 - Dec 2021
+- Built customer-facing dashboard serving 50k monthly active users
+- Implemented CI/CD pipeline reducing deployment time from 2 hours to 15 minutes
+- Developed REST API consumed by web and mobile clients
+
+Junior Developer | WebAgency | Jun 2018 - Feb 2019
+- Created responsive marketing sites for 10+ clients using React and Tailwind CSS
+- Contributed to internal component library used across all client projects
+
+EDUCATION
+B.S. Computer Science | State University | 2018
+
+SKILLS
+TypeScript, React, Next.js, Node.js, Python, PostgreSQL, Redis, AWS, Docker, Terraform
+
+PROJECTS
+OpenTaskBoard - Open-source Kanban board built with Next.js and Drizzle ORM
+PersonalBlog - Markdown-powered blog with syntax highlighting and RSS feed
