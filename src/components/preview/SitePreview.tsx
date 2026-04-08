@@ -11,7 +11,7 @@ type SitePreviewProps = {
 
 export function SitePreview({ slug }: SitePreviewProps) {
   const [loaded, setLoaded] = useState(false);
-  const previewUrl = `/sites/${slug}`;
+  const previewUrl = `/${slug}`;
 
   return (
     <div className="flex flex-col flex-1 min-h-0 animate-fade-in-up">
