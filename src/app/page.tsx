@@ -67,11 +67,18 @@ export default function Home() {
     );
   }
 
-  if (view === "preview" && conversation.siteId && conversation.siteSlug) {
+  if (view === "preview") {
     return (
       <div data-phase={conversation.phase} className="flex flex-col flex-1 min-h-0">
         <Header />
-        <SitePreview slug={conversation.siteSlug} siteId={conversation.siteId} />
+        {conversation.siteSlug ? (
+          <SitePreview slug={conversation.siteSlug} siteId={conversation.siteId ?? ""} />
+        ) : (
+          <div className="flex flex-col items-center justify-center flex-1 gap-3">
+            <LoadingSpinner size="lg" />
+            <span className="text-sm text-text-muted">Loading your site...</span>
+          </div>
+        )}
         <Footer />
       </div>
     );
