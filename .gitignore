@@ -49,3 +49,6 @@ sqlite.db-wal
 /playwright-report/
 /test-results/
 /.playwright-mcp/
+
+# pdf-parse v1 requires this dummy test file at runtime
+/test/
